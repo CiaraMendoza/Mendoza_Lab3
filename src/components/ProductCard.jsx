@@ -1,6 +1,6 @@
 import "./ProductCard.css";
 
-function ProductCard({ title, price, category = "General", inStock, onAddToCart, children }) {
+function ProductCard({ id, title, price, category = "General", inStock, onAddToCart, children }) {
   const formattedPrice = price.toLocaleString("en-PH", {
     style: "currency",
     currency: "PHP",
@@ -15,7 +15,11 @@ function ProductCard({ title, price, category = "General", inStock, onAddToCart,
       <p className={inStock ? "stock stock--in" : "stock stock--out"}>
         {inStock ? "In Stock" : "Out of Stock"}
       </p>
-      <button disabled={!inStock} onClick={() => onAddToCart(title)}>
+      <button
+        type="button"
+        disabled={!inStock}
+        onClick={() => onAddToCart({ id, title, price })}
+      >
         Add to Cart
       </button>
     </div>
