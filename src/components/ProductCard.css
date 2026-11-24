@@ -1,0 +1,93 @@
+.card {
+  position: relative;
+  display: flex;
+  min-height: 230px;
+  flex-direction: column;
+  border: 1px solid #dfe5ec;
+  border-radius: 12px;
+  padding: 1.25rem;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(31, 41, 55, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(31, 41, 55, 0.12);
+}
+
+.card h3 {
+  margin: 0.75rem 0 0.35rem;
+  padding-right: 3.5rem;
+}
+
+.card--out {
+  opacity: 0.58;
+  filter: grayscale(0.75);
+  background: #edf0f3;
+}
+
+.card--out:hover {
+  transform: none;
+}
+
+.card__category {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.card__price {
+  margin: 1rem 0 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #14532d;
+}
+
+.card__badge span {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border-radius: 999px;
+  background: #dc2626;
+  color: #fff;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.stock {
+  margin: 0.25rem 0 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.stock--in {
+  color: #15803d;
+}
+
+.stock--out {
+  color: #b91c1c;
+}
+
+.card button {
+  width: 100%;
+  margin-top: auto;
+  border: 0;
+  border-radius: 8px;
+  background: #15803d;
+  color: #fff;
+  padding: 0.75rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.2s ease;
+}
+
+.card button:hover:not(:disabled) {
+  background: #166534;
+}
+
+.card button:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
