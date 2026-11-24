@@ -1,28 +1,25 @@
 import "./ProductCard.css";
 
-function ProductCard({ id, title, price, category = "General", inStock, onAddToCart, children }) {
-  const formattedPrice = price.toLocaleString("en-PH", {
-    style: "currency",
-    currency: "PHP",
-  });
-
+function ProductCard({ title, price, category, inStock, onAddToCart, children, style }) {
   return (
-    <div className={`card ${inStock ? "" : "card--out"}`}>
-      {children && <div className="card__badge">{children}</div>}
-      <h3>{title}</h3>
-      <p className="card__category">{category}</p>
-      <p className="card__price">{formattedPrice}</p>
-      <p className={inStock ? "stock stock--in" : "stock stock--out"}>
-        {inStock ? "In Stock" : "Out of Stock"}
+    <article className="product-card" style={style}>
+      <div className="product-card-header">
+        <h2>{title}</h2>
+        {children}
+      </div>
+      <p className="product-category">{category}</p>
+      <p className="product-price">PHP {price.toLocaleString()}</p>
+      <p className={inStock ? "in-stock" : "out-of-stock"}>
+        {inStock ? "In stock" : "Out of stock"}
       </p>
       <button
         type="button"
+        onClick={() => onAddToCart(title)}
         disabled={!inStock}
-        onClick={() => onAddToCart({ id, title, price })}
       >
         Add to Cart
       </button>
-    </div>
+    </article>
   );
 }
 
